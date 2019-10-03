@@ -19,9 +19,9 @@ class MoviesController < ApplicationController
     @set_ratings = params[:ratings]
     puts(params['ratings'])
     if params[:ratings]
-      @movies = Movie.where(:rating=>params[:ratings].keys).order(params[:sort_by])
+      @movies = Movie.where(:rating=>params[:ratings].keys).order(@sort_by)
     else
-      @movies = Movie.order(params[:sort_by])
+      @movies = Movie.order(@sort_by)
     end
     if !@set_ratings
       @set_ratings = Hash.new(@all_ratings)
